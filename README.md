@@ -2,6 +2,11 @@
 
 **N.B. This is currently a work in progress, as we begin to componentise & open source the infrastructure that powers the Kujira dApps**
 
+Currently this repo uses [kujira-ex](https://github.com/Team-Kujira/kujira-ex) to serve a basic API for Orca:
+
+`GET /api/queues`
+`GET /api/queues/:contract`
+
 To start your Phoenix server:
 
 - Install dependencies with `mix deps.get`
