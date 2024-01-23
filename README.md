@@ -1,5 +1,7 @@
 # Kujira Orca API
 
+**N.B. This is currently a work in progress, as we begin to componentise & open source the infrastructure that powers the Kujira dApps**
+
 To start your Phoenix server:
 
 - Install dependencies with `mix deps.get`
