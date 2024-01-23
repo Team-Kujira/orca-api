@@ -42,7 +42,8 @@ defmodule KujiraOrca.MixProject do
       {:telemetry_poller, "~> 1.0"},
       {:jason, "~> 1.2"},
       {:plug_cowboy, "~> 2.5"},
-      {:kujira, "~> 0.1.2"}
+      {:kujira, "~> 0.1.2"},
+      {:memoize, "~> 1.4"}
     ]
   end
 

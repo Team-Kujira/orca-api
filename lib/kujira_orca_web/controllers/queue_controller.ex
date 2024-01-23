@@ -1,4 +1,5 @@
 defmodule KujiraOrcaWeb.QueueController do
+  use Memoize
   use KujiraOrcaWeb, :controller
 
   alias Kujira.Orca
@@ -7,7 +8,7 @@ defmodule KujiraOrcaWeb.QueueController do
   action_fallback KujiraOrcaWeb.FallbackController
 
   def index(conn, _params) do
-    with {:ok, queues} <- Orca.list_queues(Node.channel()) do
+    with {:ok, queues} <- list_queues() do
       render(conn, "index.json", queues: queues)
     end
   end
@@ -18,4 +19,6 @@ defmodule KujiraOrcaWeb.QueueController do
       render(conn, "show.json", queue: queue)
     end
   end
+
+  defmemop(list_queues(), do: Orca.list_queues(Node.channel()))
 end
