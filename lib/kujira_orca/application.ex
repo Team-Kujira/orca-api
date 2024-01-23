@@ -8,16 +8,17 @@ defmodule KujiraOrca.Application do
   @impl true
   def start(_type, _args) do
     children = [
-      # Start the Ecto repository
-      KujiraOrca.Repo,
+      # No need for a cache repo yet
+      # KujiraOrca.Repo,
       # Start the Telemetry supervisor
       KujiraOrcaWeb.Telemetry,
       # Start the PubSub system
       {Phoenix.PubSub, name: KujiraOrca.PubSub},
       # Start the Endpoint (http/https)
-      KujiraOrcaWeb.Endpoint
+      KujiraOrcaWeb.Endpoint,
       # Start a worker by calling: KujiraOrca.Worker.start_link(arg)
       # {KujiraOrca.Worker, arg}
+      KujiraOrca.Node
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
