@@ -7,7 +7,10 @@ defmodule KujiraOrcaWeb.Router do
 
   scope "/api", KujiraOrcaWeb do
     pipe_through :api
-    resources "/queues", QueueController, only: [:index, :show]
+
+    resources "/queues", QueueController, only: [:index, :show] do
+      resources "/bids", BidController, only: [:index, :show]
+    end
   end
 
   # Enables LiveDashboard only for development
