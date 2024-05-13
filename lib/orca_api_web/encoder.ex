@@ -16,11 +16,28 @@ Protocol.derive(Jason.Encoder, Kujira.Bow.Leverage,
   ]
 )
 
+defimpl Jason.Encoder, for: Tuple do
+  alias Kujira.Ghost.Vault
+
+  def encode({Vault, address}, opts) do
+    {:ok, vault} = Kujira.Ghost.get_vault(OrcaApi.Node.channel(), address)
+    {:ok, vault} = Kujira.Ghost.load_vault(OrcaApi.Node.channel(), vault)
+    Jason.Encode.map(vault, opts)
+  end
+
+  def encode({k, v}, opts) do
+    Jason.Encode.map(%{k => v}, opts)
+  end
+end
+
+Protocol.derive(Jason.Encoder, Kujira.Ghost.Vault.Status)
+
 Protocol.derive(Jason.Encoder, Kujira.Ghost.Market,
   only: [
     :__struct__,
     :address,
     :owner,
+    :vault,
     :collateral_token,
     :collateral_oracle_denom,
     :max_ltv,
