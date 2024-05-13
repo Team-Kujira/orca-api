@@ -61,10 +61,11 @@ defmodule OrcaApiWeb.HealthController do
   end
 
   defp insert(
-         %Kujira.Orca.Market{address: {type, address}, queue: {_, queue}, health: health},
+         %Kujira.Orca.Market{address: address, queue: {_, queue}, health: health},
          agg
        ) do
-    v = %{protocol: type, address: address, health: health}
+    {:ok, market} = Kujira.Contract.get(OrcaApi.Node.channel(), address)
+    v = %{market: market, health: health}
     Map.update(agg, queue, [v], &[v | &1])
   end
 
