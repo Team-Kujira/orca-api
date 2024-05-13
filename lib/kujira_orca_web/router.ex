@@ -11,6 +11,8 @@ defmodule KujiraOrcaWeb.Router do
     resources "/queues", QueueController, only: [:index, :show] do
       resources "/bids", BidController, only: [:index, :show]
     end
+
+    resources "/health", HealthController, only: [:index, :show]
   end
 
   # Enables LiveDashboard only for development

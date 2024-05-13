@@ -57,4 +57,7 @@ config :phoenix, :stacktrace_depth, 20
 # Initialize plugs at runtime for faster development compilation
 config :phoenix, :plug_init_mode, :runtime
 
-config :kujira_orca, KujiraOrca.Node, host: "127.0.0.1", port: 10190
+config :kujira_orca, KujiraOrca.Node,
+  host: "kujira-grpc.polkachu.com",
+  port: 11890,
+  websocket: "wss://rpc-kujira.starsquid.io"
