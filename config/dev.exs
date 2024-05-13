@@ -2,13 +2,10 @@ import Config
 
 # Configure your database
 config :kujira_orca, KujiraOrca.Repo,
-  username: "postgres",
-  password: "postgres",
-  hostname: "localhost",
-  database: "kujira_orca_dev",
+  database: Path.expand("../kujira_orca_dev.db", Path.dirname(__ENV__.file)),
+  pool_size: 5,
   stacktrace: true,
-  show_sensitive_data_on_connection_error: true,
-  pool_size: 10
+  show_sensitive_data_on_connection_error: true
 
 # For development, we disable any cache and enable
 # debugging and code reloading.
@@ -60,4 +57,4 @@ config :phoenix, :stacktrace_depth, 20
 # Initialize plugs at runtime for faster development compilation
 config :phoenix, :plug_init_mode, :runtime
 
-config :kujira_orca, KujiraOrca.Node, host: "kujira-grpc.polkachu.com", port: 11890
+config :kujira_orca, KujiraOrca.Node, host: "127.0.0.1", port: 10190
