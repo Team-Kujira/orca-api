@@ -1,6 +1,6 @@
-defmodule KujiraOrcaWeb.QueueView do
-  use KujiraOrcaWeb, :view
-  alias KujiraOrcaWeb.QueueView
+defmodule OrcaApiWeb.QueueView do
+  use OrcaApiWeb, :view
+  alias OrcaApiWeb.QueueView
 
   def render("index.json", %{queues: queues}) do
     %{data: render_many(queues, QueueView, "queue.json")}

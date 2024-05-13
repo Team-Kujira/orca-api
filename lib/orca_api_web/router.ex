@@ -1,11 +1,11 @@
-defmodule KujiraOrcaWeb.Router do
-  use KujiraOrcaWeb, :router
+defmodule OrcaApiWeb.Router do
+  use OrcaApiWeb, :router
 
   pipeline :api do
     plug :accepts, ["json"]
   end
 
-  scope "/api", KujiraOrcaWeb do
+  scope "/api", OrcaApiWeb do
     pipe_through :api
 
     resources "/queues", QueueController, only: [:index, :show] do
@@ -28,7 +28,7 @@ defmodule KujiraOrcaWeb.Router do
     scope "/" do
       pipe_through [:fetch_session, :protect_from_forgery]
 
-      live_dashboard "/dashboard", metrics: KujiraOrcaWeb.Telemetry
+      live_dashboard "/dashboard", metrics: OrcaApiWeb.Telemetry
     end
   end
 end

@@ -1,6 +1,6 @@
-defmodule KujiraOrcaWeb.HealthView do
-  use KujiraOrcaWeb, :view
-  alias KujiraOrcaWeb.HealthView
+defmodule OrcaApiWeb.HealthView do
+  use OrcaApiWeb, :view
+  alias OrcaApiWeb.HealthView
 
   def render("index.json", %{markets: markets}) do
     %{data: render_many(markets, HealthView, "queue.json")}

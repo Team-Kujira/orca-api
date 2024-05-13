@@ -1,7 +1,7 @@
-defmodule KujiraOrca.QueuesFixtures do
+defmodule OrcaApi.QueuesFixtures do
   @moduledoc """
   This module defines test helpers for creating
-  entities via the `KujiraOrca.Queues` context.
+  entities via the `OrcaApi.Queues` context.
   """
 
   @doc """
@@ -10,10 +10,8 @@ defmodule KujiraOrca.QueuesFixtures do
   def queue_fixture(attrs \\ %{}) do
     {:ok, queue} =
       attrs
-      |> Enum.into(%{
-
-      })
-      |> KujiraOrca.Queues.create_queue()
+      |> Enum.into(%{})
+      |> OrcaApi.Queues.create_queue()
 
     queue
   end

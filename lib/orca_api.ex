@@ -1,6 +1,6 @@
-defmodule KujiraOrca do
+defmodule OrcaApi do
   @moduledoc """
-  KujiraOrca keeps the contexts that define your domain
+  OrcaApi keeps the contexts that define your domain
   and business logic.
 
   Contexts are also responsible for managing your data, regardless

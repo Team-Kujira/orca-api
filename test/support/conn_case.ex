@@ -1,4 +1,4 @@
-defmodule KujiraOrcaWeb.ConnCase do
+defmodule OrcaApiWeb.ConnCase do
   @moduledoc """
   This module defines the test case to be used by
   tests that require setting up a connection.
@@ -11,7 +11,7 @@ defmodule KujiraOrcaWeb.ConnCase do
   we enable the SQL sandbox, so changes done to the database
   are reverted at the end of every test. If you are using
   PostgreSQL, you can even run database tests asynchronously
-  by setting `use KujiraOrcaWeb.ConnCase, async: true`, although
+  by setting `use OrcaApiWeb.ConnCase, async: true`, although
   this option is not recommended for other databases.
   """
 
@@ -22,17 +22,17 @@ defmodule KujiraOrcaWeb.ConnCase do
       # Import conveniences for testing with connections
       import Plug.Conn
       import Phoenix.ConnTest
-      import KujiraOrcaWeb.ConnCase
+      import OrcaApiWeb.ConnCase
 
-      alias KujiraOrcaWeb.Router.Helpers, as: Routes
+      alias OrcaApiWeb.Router.Helpers, as: Routes
 
       # The default endpoint for testing
-      @endpoint KujiraOrcaWeb.Endpoint
+      @endpoint OrcaApiWeb.Endpoint
     end
   end
 
   setup tags do
-    KujiraOrca.DataCase.setup_sandbox(tags)
+    OrcaApi.DataCase.setup_sandbox(tags)
     {:ok, conn: Phoenix.ConnTest.build_conn()}
   end
 end

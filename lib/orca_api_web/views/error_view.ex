@@ -1,5 +1,5 @@
-defmodule KujiraOrcaWeb.ErrorView do
-  use KujiraOrcaWeb, :view
+defmodule OrcaApiWeb.ErrorView do
+  use OrcaApiWeb, :view
 
   # If you want to customize a particular status code
   # for a certain format, you may uncomment below.

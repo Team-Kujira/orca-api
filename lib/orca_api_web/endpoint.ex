@@ -1,12 +1,12 @@
-defmodule KujiraOrcaWeb.Endpoint do
-  use Phoenix.Endpoint, otp_app: :kujira_orca
+defmodule OrcaApiWeb.Endpoint do
+  use Phoenix.Endpoint, otp_app: :orca_api
 
   # The session will be stored in the cookie and signed,
   # this means its contents can be read but not tampered with.
   # Set :encryption_salt if you would also like to encrypt it.
   @session_options [
     store: :cookie,
-    key: "_kujira_orca_key",
+    key: "_orca_api_key",
     signing_salt: "0GjdtG2J"
   ]
 
@@ -18,7 +18,7 @@ defmodule KujiraOrcaWeb.Endpoint do
   # when deploying your static files in production.
   plug Plug.Static,
     at: "/",
-    from: :kujira_orca,
+    from: :orca_api,
     gzip: false,
     only: ~w(assets fonts images favicon.ico robots.txt)
 
@@ -26,7 +26,7 @@ defmodule KujiraOrcaWeb.Endpoint do
   # :code_reloader configuration of your endpoint.
   if code_reloading? do
     plug Phoenix.CodeReloader
-    plug Phoenix.Ecto.CheckRepoStatus, otp_app: :kujira_orca
+    plug Phoenix.Ecto.CheckRepoStatus, otp_app: :orca_api
   end
 
   plug Phoenix.LiveDashboard.RequestLogger,
@@ -44,5 +44,5 @@ defmodule KujiraOrcaWeb.Endpoint do
   plug Plug.MethodOverride
   plug Plug.Head
   plug Plug.Session, @session_options
-  plug KujiraOrcaWeb.Router
+  plug OrcaApiWeb.Router
 end

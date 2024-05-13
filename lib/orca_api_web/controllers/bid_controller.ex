@@ -1,10 +1,10 @@
-defmodule KujiraOrcaWeb.BidController do
-  use KujiraOrcaWeb, :controller
+defmodule OrcaApiWeb.BidController do
+  use OrcaApiWeb, :controller
 
   alias Kujira.Orca
-  alias KujiraOrca.Node
+  alias OrcaApi.Node
 
-  action_fallback KujiraOrcaWeb.FallbackController
+  action_fallback OrcaApiWeb.FallbackController
 
   def index(conn, %{"queue_id" => queue_id, "bidder" => bidder}) do
     with {:ok, queue} <- Orca.get_queue(Node.channel(), queue_id),

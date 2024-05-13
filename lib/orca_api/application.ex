@@ -1,4 +1,4 @@
-defmodule KujiraOrca.Application do
+defmodule OrcaApi.Application do
   # See https://hexdocs.pm/elixir/Application.html
   # for more information on OTP Applications
   @moduledoc false
@@ -9,21 +9,21 @@ defmodule KujiraOrca.Application do
   def start(_type, _args) do
     children = [
       # No need for a cache repo yet
-      # KujiraOrca.Repo,
+      # OrcaApi.Repo,
       # Start the Telemetry supervisor
-      KujiraOrcaWeb.Telemetry,
+      OrcaApiWeb.Telemetry,
       # Start the PubSub system
-      {Phoenix.PubSub, name: KujiraOrca.PubSub},
+      {Phoenix.PubSub, name: OrcaApi.PubSub},
       # Start the Endpoint (http/https)
-      KujiraOrcaWeb.Endpoint,
-      # Start a worker by calling: KujiraOrca.Worker.start_link(arg)
-      # {KujiraOrca.Worker, arg}
-      KujiraOrca.Node
+      OrcaApiWeb.Endpoint,
+      # Start a worker by calling: OrcaApi.Worker.start_link(arg)
+      # {OrcaApi.Worker, arg}
+      OrcaApi.Node
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
     # for other strategies and supported options
-    opts = [strategy: :one_for_one, name: KujiraOrca.Supervisor]
+    opts = [strategy: :one_for_one, name: OrcaApi.Supervisor]
     Supervisor.start_link(children, opts)
   end
 
@@ -31,7 +31,7 @@ defmodule KujiraOrca.Application do
   # whenever the application is updated.
   @impl true
   def config_change(changed, _new, removed) do
-    KujiraOrcaWeb.Endpoint.config_change(changed, removed)
+    OrcaApiWeb.Endpoint.config_change(changed, removed)
     :ok
   end
 end

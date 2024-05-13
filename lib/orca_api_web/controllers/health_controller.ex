@@ -1,12 +1,12 @@
-defmodule KujiraOrcaWeb.HealthController do
+defmodule OrcaApiWeb.HealthController do
   alias Kujira.Usk
-  use KujiraOrcaWeb, :controller
+  use OrcaApiWeb, :controller
 
   alias Kujira.Bow
   alias Kujira.Ghost
-  alias KujiraOrca.Node
+  alias OrcaApi.Node
 
-  action_fallback KujiraOrcaWeb.FallbackController
+  action_fallback OrcaApiWeb.FallbackController
 
   def index(conn, _params) do
     with {:ok, usk} <- Usk.list_markets(Node.channel()),

@@ -7,15 +7,15 @@
 # General application configuration
 import Config
 
-config :kujira_orca,
-  ecto_repos: [KujiraOrca.Repo],
+config :orca_api,
+  ecto_repos: [OrcaApi.Repo],
   generators: [binary_id: true]
 
 # Configures the endpoint
-config :kujira_orca, KujiraOrcaWeb.Endpoint,
+config :orca_api, OrcaApiWeb.Endpoint,
   url: [host: "localhost"],
-  render_errors: [view: KujiraOrcaWeb.ErrorView, accepts: ~w(json), layout: false],
-  pubsub_server: KujiraOrca.PubSub,
+  render_errors: [view: OrcaApiWeb.ErrorView, accepts: ~w(json), layout: false],
+  pubsub_server: OrcaApi.PubSub,
   live_view: [signing_salt: "AuNNxfWR"]
 
 # Configures Elixir's Logger

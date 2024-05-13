@@ -1,8 +1,8 @@
 import Config
 
 # Configure your database
-config :kujira_orca, KujiraOrca.Repo,
-  database: Path.expand("../kujira_orca_dev.db", Path.dirname(__ENV__.file)),
+config :orca_api, OrcaApi.Repo,
+  database: Path.expand("../orca_api_dev.db", Path.dirname(__ENV__.file)),
   pool_size: 5,
   stacktrace: true,
   show_sensitive_data_on_connection_error: true
@@ -13,7 +13,7 @@ config :kujira_orca, KujiraOrca.Repo,
 # The watchers configuration can be used to run external
 # watchers to your application. For example, we use it
 # with esbuild to bundle .js and .css sources.
-config :kujira_orca, KujiraOrcaWeb.Endpoint,
+config :orca_api, OrcaApiWeb.Endpoint,
   # Binding to loopback ipv4 address prevents access from other machines.
   # Change to `ip: {0, 0, 0, 0}` to allow access from other machines.
   http: [ip: {127, 0, 0, 1}, port: 4000],
@@ -57,7 +57,7 @@ config :phoenix, :stacktrace_depth, 20
 # Initialize plugs at runtime for faster development compilation
 config :phoenix, :plug_init_mode, :runtime
 
-config :kujira_orca, KujiraOrca.Node,
+config :orca_api, OrcaApi.Node,
   host: "kujira-grpc.polkachu.com",
   port: 11890,
   websocket: "wss://rpc-kujira.starsquid.io"

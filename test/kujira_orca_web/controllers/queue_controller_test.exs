@@ -1,16 +1,12 @@
-defmodule KujiraOrcaWeb.QueueControllerTest do
-  use KujiraOrcaWeb.ConnCase
+defmodule OrcaApiWeb.QueueControllerTest do
+  use OrcaApiWeb.ConnCase
 
-  import KujiraOrca.QueuesFixtures
+  import OrcaApi.QueuesFixtures
 
-  alias KujiraOrca.Queues.Queue
+  alias OrcaApi.Queues.Queue
 
-  @create_attrs %{
-
-  }
-  @update_attrs %{
-
-  }
+  @create_attrs %{}
+  @update_attrs %{}
   @invalid_attrs %{}
 
   setup %{conn: conn} do

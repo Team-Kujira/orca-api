@@ -1,6 +1,6 @@
-defmodule KujiraOrcaWeb.BidView do
-  use KujiraOrcaWeb, :view
-  alias KujiraOrcaWeb.BidView
+defmodule OrcaApiWeb.BidView do
+  use OrcaApiWeb, :view
+  alias OrcaApiWeb.BidView
 
   def render("index.json", %{bids: bids}) do
     %{data: render_many(bids, BidView, "bid.json")}

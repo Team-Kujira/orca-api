@@ -1,4 +1,4 @@
-defmodule KujiraOrcaWeb.ErrorHelpers do
+defmodule OrcaApiWeb.ErrorHelpers do
   @moduledoc """
   Conveniences for translating and building error messages.
   """

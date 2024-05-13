@@ -1,12 +1,12 @@
-defmodule KujiraOrcaWeb do
+defmodule OrcaApiWeb do
   @moduledoc """
   The entrypoint for defining your web interface, such
   as controllers, views, channels and so on.
 
   This can be used in your application as:
 
-      use KujiraOrcaWeb, :controller
-      use KujiraOrcaWeb, :view
+      use OrcaApiWeb, :controller
+      use OrcaApiWeb, :view
 
   The definitions below will be executed for every view,
   controller, etc, so keep them short and clean, focused
@@ -19,18 +19,18 @@ defmodule KujiraOrcaWeb do
 
   def controller do
     quote do
-      use Phoenix.Controller, namespace: KujiraOrcaWeb
+      use Phoenix.Controller, namespace: OrcaApiWeb
 
       import Plug.Conn
-      alias KujiraOrcaWeb.Router.Helpers, as: Routes
+      alias OrcaApiWeb.Router.Helpers, as: Routes
     end
   end
 
   def view do
     quote do
       use Phoenix.View,
-        root: "lib/kujira_orca_web/templates",
-        namespace: KujiraOrcaWeb
+        root: "lib/orca_api_web/templates",
+        namespace: OrcaApiWeb
 
       # Import convenience functions from controllers
       import Phoenix.Controller,
@@ -61,8 +61,8 @@ defmodule KujiraOrcaWeb do
       # Import basic rendering functionality (render, render_layout, etc)
       import Phoenix.View
 
-      import KujiraOrcaWeb.ErrorHelpers
-      alias KujiraOrcaWeb.Router.Helpers, as: Routes
+      import OrcaApiWeb.ErrorHelpers
+      alias OrcaApiWeb.Router.Helpers, as: Routes
     end
   end
 

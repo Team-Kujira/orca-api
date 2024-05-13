@@ -1,10 +1,10 @@
-defmodule KujiraOrcaWeb.QueueController do
-  use KujiraOrcaWeb, :controller
+defmodule OrcaApiWeb.QueueController do
+  use OrcaApiWeb, :controller
 
   alias Kujira.Orca
-  alias KujiraOrca.Node
+  alias OrcaApi.Node
 
-  action_fallback KujiraOrcaWeb.FallbackController
+  action_fallback OrcaApiWeb.FallbackController
 
   def index(conn, _params) do
     with {:ok, queues} <- Orca.list_queues(Node.channel()) do
