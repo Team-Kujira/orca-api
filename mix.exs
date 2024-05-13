@@ -3,7 +3,7 @@ defmodule OrcaApi.MixProject do
 
   def project do
     [
-      app: :orca_api,
+      app: :kujira_orca,
       version: "0.1.0",
       elixir: "~> 1.12",
       elixirc_paths: elixirc_paths(Mix.env()),
@@ -42,7 +42,8 @@ defmodule OrcaApi.MixProject do
       {:telemetry_poller, "~> 1.0"},
       {:jason, "~> 1.2"},
       {:plug_cowboy, "~> 2.5"},
-      {:kujira, "~> 0.1.35"}
+      {:kujira, "~> 0.1.35"},
+      {:gun, "~> 2.0.1", hex: :grpc_gun, override: true}
     ]
   end
 
