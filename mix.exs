@@ -43,7 +43,8 @@ defmodule OrcaApi.MixProject do
       {:jason, "~> 1.2"},
       {:plug_cowboy, "~> 2.5"},
       {:kujira, "~> 0.1.35"},
-      {:gun, "~> 2.0.1", hex: :grpc_gun, override: true}
+      {:gun, "~> 2.0.1", hex: :grpc_gun, override: true},
+      {:cors_plug, "~> 2.0"}
     ]
   end
 
