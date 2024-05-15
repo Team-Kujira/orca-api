@@ -11,7 +11,7 @@ Protocol.derive(Jason.Encoder, Kujira.Bow.Leverage,
     :oracle_quote,
     :max_ltv,
     :full_liquidation_threshold,
-    :partial_liquidation_target,
+    :partial_liquidation_fraction,
     :borrow_fee
   ]
 )
@@ -27,6 +27,12 @@ defimpl Jason.Encoder, for: Tuple do
 
   def encode({k, v}, opts) do
     Jason.Encode.map(%{k => v}, opts)
+  end
+end
+
+defimpl Jason.Encoder, for: Integer do
+  def encode(integer, opts) do
+    Jason.Encoder.encode(Integer.to_string(integer), opts)
   end
 end
 
