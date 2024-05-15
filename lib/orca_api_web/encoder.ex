@@ -30,12 +30,6 @@ defimpl Jason.Encoder, for: Tuple do
   end
 end
 
-defimpl Jason.Encoder, for: Integer do
-  def encode(integer, opts) do
-    Jason.Encoder.encode(Integer.to_string(integer), opts)
-  end
-end
-
 Protocol.derive(Jason.Encoder, Kujira.Ghost.Vault.Status)
 
 Protocol.derive(Jason.Encoder, Kujira.Ghost.Market,
