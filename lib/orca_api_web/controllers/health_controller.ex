@@ -16,17 +16,17 @@ defmodule OrcaApiWeb.HealthController do
         %{}
         |> reduce(usk, fn x, agg ->
           Node.channel()
-          |> Usk.load_orca_market(x, 3)
+          |> Usk.load_orca_market(x, 6)
           |> insert(agg)
         end)
         |> reduce(ghost, fn x, agg ->
           Node.channel()
-          |> Ghost.load_orca_market(x, 3)
+          |> Ghost.load_orca_market(x, 6)
           |> insert(agg)
         end)
         |> reduce(bow, fn x, agg ->
           Node.channel()
-          |> Bow.load_orca_markets(x, 3)
+          |> Bow.load_orca_markets(x, 6)
           |> insert(agg)
         end)
 
