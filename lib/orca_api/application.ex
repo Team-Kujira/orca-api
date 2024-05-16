@@ -18,7 +18,8 @@ defmodule OrcaApi.Application do
       OrcaApiWeb.Endpoint,
       # Start a worker by calling: OrcaApi.Worker.start_link(arg)
       # {OrcaApi.Worker, arg}
-      OrcaApi.Node
+      OrcaApi.Node,
+      OrcaApi.Invalidator
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
