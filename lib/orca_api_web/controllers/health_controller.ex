@@ -10,11 +10,17 @@ defmodule OrcaApiWeb.HealthController do
 
   def index(conn, _params) do
     with {:ok, usk} <- Usk.list_markets(Node.channel()),
+         {:ok, uskMargin} <- Usk.list_margins(Node.channel()),
          {:ok, ghost} <- Ghost.list_markets(Node.channel()),
          {:ok, bow} <- Bow.list_leverage(Node.channel()) do
       data =
         %{}
         |> reduce(usk, fn x, agg ->
+          Node.channel()
+          |> Usk.load_orca_market(x, 6)
+          |> insert(agg)
+        end)
+        |> reduce(uskMargin, fn x, agg ->
           Node.channel()
           |> Usk.load_orca_market(x, 6)
           |> insert(agg)

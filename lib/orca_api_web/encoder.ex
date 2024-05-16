@@ -65,6 +65,8 @@ Protocol.derive(Jason.Encoder, Kujira.Usk.Market,
   ]
 )
 
+Protocol.derive(Jason.Encoder, Kujira.Usk.Margin, only: [:__struct__, :fin_pair, :market])
+
 Protocol.derive(Jason.Encoder, Kujira.Orca.Queue,
   only: [
     :address,
