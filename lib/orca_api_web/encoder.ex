@@ -65,6 +65,44 @@ Protocol.derive(Jason.Encoder, Kujira.Usk.Market,
   ]
 )
 
+Protocol.derive(Jason.Encoder, Kujira.Usk.Position,
+  only: [
+    :__struct__,
+    :market,
+    :holder,
+    :collateral_amount,
+    :mint_amount,
+    :interest_amount,
+    :debt_amount
+  ]
+)
+
+Protocol.derive(Jason.Encoder, Kujira.Ghost.Position,
+  only: [
+    :__struct__,
+    :market,
+    :holder,
+    :collateral_amount,
+    :debt_shares,
+    :debt_amount
+  ]
+)
+
+Protocol.derive(Jason.Encoder, Kujira.Bow.Leverage.Position,
+  only: [
+    :__struct__,
+    :idx,
+    :holder,
+    :debt_shares_base,
+    :debt_amount_base,
+    :debt_shares_quote,
+    :debt_amount_quote,
+    :lp_amount,
+    :collateral_amount_base,
+    :collateral_amount_quote
+  ]
+)
+
 Protocol.derive(Jason.Encoder, Kujira.Usk.Margin, only: [:__struct__, :fin_pair, :market])
 
 Protocol.derive(Jason.Encoder, Kujira.Orca.Queue,

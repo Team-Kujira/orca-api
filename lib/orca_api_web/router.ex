@@ -13,6 +13,7 @@ defmodule OrcaApiWeb.Router do
     end
 
     resources "/health", HealthController, only: [:index, :show]
+    resources "/positions", PositionsController, only: [:index]
   end
 
   # Enables LiveDashboard only for development
