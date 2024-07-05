@@ -92,6 +92,8 @@ Protocol.derive(Jason.Encoder, Kujira.Bow.Leverage.Position,
   only: [
     :__struct__,
     :idx,
+    :bow,
+    :leverage,
     :holder,
     :debt_shares_base,
     :debt_amount_base,
