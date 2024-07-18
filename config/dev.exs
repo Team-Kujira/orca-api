@@ -2,10 +2,13 @@ import Config
 
 # Configure your database
 config :orca_api, OrcaApi.Repo,
-  database: Path.expand("../orca_api_dev.db", Path.dirname(__ENV__.file)),
-  pool_size: 5,
+  username: "postgres",
+  password: "postgres",
+  database: "kujira_orca_api",
   stacktrace: true,
-  show_sensitive_data_on_connection_error: true
+  show_sensitive_data_on_connection_error: true,
+  pool_size: 10,
+  timeout: 60000
 
 # For development, we disable any cache and enable
 # debugging and code reloading.
@@ -58,6 +61,6 @@ config :phoenix, :stacktrace_depth, 20
 config :phoenix, :plug_init_mode, :runtime
 
 config :orca_api, OrcaApi.Node,
-  host: "kujira-grpc.polkachu.com",
-  port: 11890,
+  host: "0d1ef00f-e290-4d78-b884-b335f18e1135.kaiyo-1.mesa-grpc.newmetric.xyz",
+  port: 80,
   websocket: "wss://rpc-kujira.starsquid.io"

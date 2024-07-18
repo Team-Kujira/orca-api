@@ -19,6 +19,7 @@ defmodule OrcaApi.Application do
       # Start a worker by calling: OrcaApi.Worker.start_link(arg)
       # {OrcaApi.Worker, arg}
       OrcaApi.Node,
+      OrcaApi.Indexer,
       {Kujira.Invalidator, pubsub: OrcaApi.PubSub}
     ]
 
