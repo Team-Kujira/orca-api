@@ -8,4 +8,4 @@ config :kujira, Kujira.Orca, code_ids: [1952, 2923]
 config :kujira, Kujira.Usk,
   controller_code_id: 53,
   market_code_ids: [66, 136],
-  margin_code_ids: [1950]
+  margin_code_ids: [87]
