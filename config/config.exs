@@ -29,6 +29,12 @@ config :phoenix, :json_library, Jason
 config :cors_plug,
   origin: [~r/https:\/\/([a-z]+\.)?kujira\.network$/, "http://localhost:1234"]
 
+network = System.get_env("NETWORK")
+
+if network == "testnet" do
+  import_config "./testnet.exs"
+end
+
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 import_config "#{config_env()}.exs"

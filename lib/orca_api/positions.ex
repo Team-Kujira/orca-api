@@ -28,7 +28,7 @@ defmodule OrcaApi.Positions do
          {:ok, bow} <- Bow.list_leverage(channel),
          data =
            Enum.reduce(bow, data, fn market, agg ->
-             Bow.list_positions(channel, market)
+             Bow.list_all_positions(channel, market)
              |> Enum.reduce(agg, &insert_bow(&1, &2, market))
            end) do
       {:ok, data}
